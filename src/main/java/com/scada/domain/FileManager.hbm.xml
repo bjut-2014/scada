@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.scada.domain.FileManager" table="file_manager">
+		
+		<id name="sid" type="java.lang.Integer">
+			<column name="sid" />
+			<generator class="native" />
+		</id>
+		
+		<property name="sname" type="java.lang.String">
+			<column name="sname"></column>
+		</property>
+		
+		<property name="identity_card" type="java.lang.String">
+			<column name="identity_card"></column>
+		</property>
+		
+		<property name="sex" type="java.lang.String">
+			<column name="sex"></column>
+		</property>
+		
+		<property name="both" type="java.lang.String">
+			<column name="both"></column>
+		</property>
+		
+		<property name="age" type="java.lang.Integer">
+			<column name="age"></column>
+		</property>
+		
+		<property name="location" type="java.lang.String">
+			<column name="location"></column>
+		</property>
+		
+		<property name="zip_code" type="java.lang.String">
+			<column name="zip_code"></column>
+		</property>
+		
+		
+		<property name="nation" type="java.lang.String">
+			<column name="nation"></column>
+		</property>
+		
+		<property name="politics_status" type="java.lang.String">
+			<column name="politics_status"></column>
+		</property>
+		
+		<property name="school" type="java.lang.String">
+			<column name="school"></column>
+		</property>
+		
+		<property name="education_background" type="java.lang.String">
+			<column name="education_background"></column>
+		</property>
+		
+		<property name="major" type="java.lang.String">
+			<column name="major"></column>
+		</property>
+		
+		<property name="job_title" type="java.lang.String">
+			<column name="job_title"></column>
+		</property>
+		
+		<property name="job_title_date" type="java.lang.String">
+			<column name="job_title_date"></column>
+		</property>
+		
+		<property name="qualification" type="java.lang.String">
+			<column name="qualification"></column>
+		</property>
+		
+		<property name="telephone" type="java.lang.String">
+			<column name="telephone"></column>
+		</property>
+		
+		<property name="mobilephone" type="java.lang.String">
+			<column name="mobilephone"></column>
+		</property>
+		
+		<property name="urgent_phone" type="java.lang.String">
+			<column name="urgent_phone"></column>
+		</property>
+		
+		<property name="company_email" type="java.lang.String">
+			<column name="company_email"></column>
+		</property>
+		
+		<property name="sole_email" type="java.lang.String">
+			<column name="sole_email"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

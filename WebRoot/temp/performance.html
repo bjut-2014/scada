@@ -1,0 +1,389 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../Styles/bootstrap-new.min.css" />
+  <script type="text/javascript" src="../Scripts/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+  <style type="text/css">
+	.btn {
+		margin-bottom: 0;
+	}
+	.modal-body input {
+		display: inline;
+		width: 100px;
+		margin-bottom: 10px;
+	}
+  </style>
+</head>
+<body>
+	<div class="form-group">
+	  <label>字段名称：</label>
+	  <select class="form-control" style="display: inline; width: 200px">
+	    <option value="">序号</option>
+	    <option value="">遥测代号</option>
+	    <option value="">遥测名称</option>
+	    <option value="">所属场站</option>
+	    <option value="">装置</option>
+	  </select>
+	  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字段内容：</label>
+	  <input type="text" class="form-control" style="display: inline; width: 200px">
+	  <button type="button" class="btn btn-primary">搜索</button>&nbsp;&nbsp;
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalAdd" style="float: right; margin-right: 100px;">添加</button>
+	</div>
+	<table class="table table-striped table-hover performance-table">
+	  <thead>
+	    <tr>
+	      <th>序号</th>
+	      <th>遥测代号</th>
+	      <th>遥测名称</th>
+	      <th>所属场站</th>
+	      <th>装置</th>
+	      <th>遥测类型</th>
+	      <th>整型值</th>
+	      <th>浮点数</th>
+	      <th>状态</th>
+	      <th>基值</th>
+	      <th>系数</th>
+  	      <th>阀值</th>
+  	      <th>死区值</th>
+  	      <th>滤波因子</th>
+  	      <th>操作</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr class="performance-tr-1">
+	      <td>1001</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-2">
+	      <td>1002</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-3">
+	      <td>1003</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-4">
+	      <td>1004</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-5">
+	      <td>1005</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-6">
+	      <td>1006</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-7">
+	      <td>1007</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-8">
+	      <td>1008</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="performance-tr-9">
+	      <td>1009</td>
+	      <td>407000129</td>
+	      <td>测试</td>
+	      <td>测试厂站</td>
+	      <td>01厂站仪表</td>
+	      <td>A相电压</td>
+	      <td>0</td>
+  	      <td>0.0</td>
+  	      <td>遥测正常</td>
+  	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+	      <td>0.0</td>
+  	      <td>0.0</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm performance-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm performance-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<nav style="float: right;margin-top: -18px;">
+	  <ul class="pagination">
+	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+	    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">5</a></li>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+	<div class="modal fade performance-modal-add" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">添加性能数据</h4>
+	      </div>
+	      <div class="modal-body clearfix">
+	      	<div class="modal-body-left" style="float: left;width: 190px;">
+	      		<div>序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：<input type="text" class="form-control performance-1"></div>
+	      		<div>遥测代号：<input type="text" class="form-control performance-2"></div>
+	      		<div>遥测名称：<input type="text" class="form-control performance-3"> </div>
+	      		<div>所属场站：<input type="text" class="form-control performance-4"> </div>
+	      		<div>装&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置：<input type="text" class="form-control performance-5"></div>
+	      		<div>遥测类型：<input type="text" class="form-control performance-6"></div>
+	      		<div>&nbsp;&nbsp;&nbsp;整型值：<input type="text" class="form-control performance-7"></div>
+	      		<div>&nbsp;&nbsp;&nbsp;浮点数：<input type="text" class="form-control performance-8"></div>
+	      	</div>
+	      	<div class="modal-body-right" style="float: right;;width: 190px;">
+	      		<div>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<input type="text" class="form-control performance-9"></div>
+	      		<div>基&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值：<input type="text" class="form-control performance-10"></div>
+	      		<div>系&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：<input type="text" class="form-control performance-11"></div>
+	      		<div>阀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值：<input type="text" class="form-control performance-12"></div>
+	      		<div>&nbsp;&nbsp;&nbsp;死区值：<input type="text" class="form-control performance-13"></div>
+	      		<div>滤波因子：<input type="text" class="form-control performance-14"></div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary performance-add" data-dismiss>添加</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="myModalModify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">编辑性能数据</h4>
+	        </div>
+	        <div class="modal-body clearfix">
+	        	<div class="modal-body-left" style="float: left;width: 190px;">
+	        		<div>序&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：<input type="text" class="form-control modify-input-1"></div>
+	        		<div>遥测代号：<input type="text" class="form-control modify-input-2"></div>
+	        		<div>遥测名称：<input type="text" class="form-control modify-input-3"> </div>
+	        		<div>所属场站：<input type="text" class="form-control modify-input-4"> </div>
+	        		<div>装&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置：<input type="text" class="form-control modify-input-5"></div>
+	        		<div>遥测类型：<input type="text" class="form-control modify-input-6"></div>
+	        		<div>&nbsp;&nbsp;&nbsp;整型值：<input type="text" class="form-control modify-input-7"></div>
+	        		<div>&nbsp;&nbsp;&nbsp;浮点数：<input type="text" class="form-control modify-input-8"></div>
+	        	</div>
+	        	<div class="modal-body-right" style="float: right;;width: 190px;">
+	        		<div>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：<input type="text" class="form-control modify-input-9"></div>
+	        		<div>基&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值：<input type="text" class="form-control modify-input-10"></div>
+	        		<div>系&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：<input type="text" class="form-control modify-input-11"></div>
+	        		<div>阀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值：<input type="text" class="form-control modify-input-12"></div>
+	        		<div>&nbsp;&nbsp;&nbsp;死区值：<input type="text" class="form-control modify-input-13"></div>
+	        		<div>滤波因子：<input type="text" class="form-control modify-input-14"></div>
+	        	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	          <button type="button" class="btn btn-primary performance-modify-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+	<div class="modal fade" id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">确认删除性能数据吗？</h4>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	          <button type="button" class="btn btn-primary performance-del-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+<script type="text/javascript">
+	var performanceLength = $('.performance-table th').length - 1;
+	var j = 9;
+	$('.performance-add').delegate('', 'click', function() {
+		j++;
+		var performanceAddArr = [];
+
+		for (var i = 0; i < performanceLength; i++) {
+			performanceAddArr[i] = $('.performance-' + (i+1)).val();
+		}
+		
+		$('.performance-table').append("<tr class=performance-tr-" + j + "><td>" + performanceAddArr[0] + "</td><td>" + performanceAddArr[1] + "</td><td>" + performanceAddArr[2] + "</td><td>" + performanceAddArr[3] + "</td><td>" + performanceAddArr[4] + "</td><td>" + performanceAddArr[5] + "</td><td>" + performanceAddArr[6] + "</td><td>" + performanceAddArr[7] + "</td><td>" + performanceAddArr[8] + "</td><td>" + performanceAddArr[9] + "</td><td>" + performanceAddArr[10] + "</td><td>" + performanceAddArr[11] + "</td><td>" + performanceAddArr[12] + "</td><td>" + performanceAddArr[13] + "</td><td><button type='button' class='btn btn-info btn-sm performance-modify' data-toggle='modal' data-target='#myModalModify'>编辑</button> <button type='button' class='btn btn-info btn-sm performance-del' data-toggle='modal' data-target='#myModalDel'>删除</button></td></tr>");
+
+	    $(this).attr('data-dismiss', 'modal');
+	})		
+
+	$(document).delegate('.performance-modify', 'click', function() {
+		var performanceModifyArr = [];
+		$('.performance-modify-confirm').removeAttr('data-target');
+
+		for (var i = 0; i < performanceLength; i++) {
+			performanceModifyArr[i] = $(this).parent().siblings().eq(i).html();
+			$('#myModalModify .modify-input-' + (i+1)).val(performanceModifyArr[i]);
+		}
+
+		var performanceTrAttr = $(this).parent().parent().attr("class");
+		$('.performance-modify-confirm').attr('data-target', performanceTrAttr);
+	})
+
+	$('.performance-modify-confirm').delegate('', 'click', function() {
+		var performanceModifyArr = [],
+			modifyId = $(this).attr('data-target');
+
+		for (var i = 0; i < performanceLength; i++) {
+			performanceModifyArr[i] = $('#myModalModify .modify-input-' + (i+1)).val();
+			$('.' + modifyId).children().eq(i).html(performanceModifyArr[i]);
+		}
+
+		$(this).attr('data-dismiss', 'modal');
+	})
+
+	$(document).delegate('.performance-del', 'click', function () {
+		var performanceTrAttr = $(this).parent().parent().attr("class");
+		$('.performance-del-confirm').attr('data-target', performanceTrAttr);
+	})
+
+	$('.performance-del-confirm').delegate('', 'click', function() {
+		var delId = $(this).attr('data-target');
+
+		$('.' + delId).remove();
+		$(this).attr('data-dismiss', 'modal');
+	})
+</script>
+</body>
+</html>

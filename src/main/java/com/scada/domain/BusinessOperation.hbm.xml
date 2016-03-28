@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.scada.domain.MachineRoom" table="assets_machineroom">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID"/>
+   <generator class="native"/>
+  </id>
+  <property name="userType">
+   <column name="userType"/>
+  </property>
+  <property name="companyName">
+   <column name="companyName"/>
+  </property>
+  <property name="residentName">
+   <column name="residentName"/>
+  </property>
+  <property name="area">
+   <column name="area"/>
+  </property>
+  <property name="companyNum">
+   <column name="companyNum"/>
+  </property>
+  <property name="familyNum">
+   <column name="familyNum"/>
+  </property>
+  <property name="ownerName">
+   <column name="ownerName"/>
+  </property>
+  <property name="mainName">
+   <column name="mainName"/>
+  </property>
+  <property name="sex">
+   <column name="sex"/>
+  </property>
+  <property name="birthday">
+   <column name="birthday"/>
+  </property>
+  <property name="address">
+   <column name="address"/>
+  </property>
+  <property name="tel">
+   <column name="tel"/>
+  </property>
+  <property name="mobile">
+   <column name="mobile"/>
+  </property>
+  <property name="email">
+   <column name="email"/>
+  </property>
+ </class>
+</hibernate-mapping>

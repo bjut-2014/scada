@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.scada.domain.Billing" table="billing">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID"/>
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="type" type="java.lang.String">
+   <column name="type"/>
+  </property>
+  <property generated="never" lazy="false" name="name" type="java.lang.String">
+   <column name="name"/>
+  </property>
+  <property generated="never" lazy="false" name="ownername" type="java.lang.String">
+   <column name="ownername"/>
+  </property>
+  <property generated="never" lazy="false" name="total" type="java.lang.String">
+   <column name="total"/>
+  </property>
+  <property generated="never" lazy="false" name="presentmonth" type="java.lang.String">
+   <column name="presentmonth"/>
+  </property>
+  <property generated="never" lazy="false" name="balance" type="java.lang.String">
+   <column name="balance"/>
+  </property>
+  <property generated="never" lazy="false" name="area" type="java.lang.String">
+   <column name="area"/>
+  </property>
+ </class>
+</hibernate-mapping>

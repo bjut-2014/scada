@@ -1,0 +1,238 @@
+﻿/****-globals-功能: 重设浏览器默认样式****/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    color: #000;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Microsoft Yahei';
+}
+/*定义字体*/
+body, button, input, select, textarea {
+    font: 12px/1.5 'Microsoft Yahei',Arial,Verdana,tahoma,Helvetica,sans-serif;
+}
+
+input, select, textarea {
+    font-size: 100%;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+a, input {
+    outline: none;
+}
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* IE bug fixed: th 不继承 text-align*/
+th {
+    text-align: inherit;
+}
+/* 去除默认边框 */
+fieldset, img {
+    border: 0;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display: block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+/* 一致的 del 样式 */
+del {
+    text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+    list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+    text-align: left;
+}
+
+/* 标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+.bd, .hd {
+    width: 100%;
+    clear: both;
+}
+
+select {
+    vertical-align: middle;
+}
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+/* 清理浮动 */
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    display: block;
+    visibility: hidden;
+    content: " ";
+    line-height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+/* for IE6 IE7 */
+/* 设置空白高度 */
+.blank6, .blank, .blank15, .blank20, .blank30, .blank50, .blank100, {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+
+.blank {
+    height: 10px;
+}
+
+.blank6 {
+    height: 6px;
+}
+
+.blank15 {
+    height: 15px;
+}
+
+.blank20 {
+    height: 20px;
+}
+
+.blank30 {
+    height: 30px;
+}
+
+.blank50 {
+    height: 50px;
+}
+
+.blank100 {
+    height: 100px;
+}
+/* 左浮动 */
+.left {
+    float: left;
+}
+/* 右浮动 */
+.right {
+    float: right;
+}
+
+/*14号字*/
+.f14 {
+    font-size: 14px; /*大小*/
+}
+/*16号字*/
+.f16 {
+    font-size: 16px; /*大小*/
+}
+/*18号字*/
+.f18 {
+    font-size: 18px; /*大小*/
+}
+/*20号字*/
+.f20 {
+    font-size: 20px; /*大小*/
+}
+/*链接根据页面要求全局自定义*/
+/*链接*/
+a:link {
+    text-decoration: none; /*下划线*/
+    color: #000000; /*颜色*/
+}
+/*被访问过链接*/
+a:visited {
+    text-decoration: none; /*下划线*/
+    color: #000000; /*颜色*/
+}
+/*鼠标经过*/
+a:hover {
+    text-decoration: none; /*下划线*/
+    color: #643b05; /*颜色*/
+}
+/*链接被按下*/
+a:active {
+    text-decoration: none; /*下划线*/
+    color: #643b05; /*颜色*/
+}
+/*链接橙色*/
+a.orange {
+    color: #8e5f07; /*颜色*/
+}
+/*链接灰色*/
+a.gray {
+    color: #6d6d6d; /*颜色*/
+}
+/*开灯关灯效果*/
+.turnoff {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    background: #000000 repeat;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+}

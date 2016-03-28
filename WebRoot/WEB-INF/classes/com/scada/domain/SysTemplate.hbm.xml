@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.SysTemplate" table="sys_template">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="logId" />
+			<generator class="native" />
+		</id>
+		<property name="modelName" type="java.lang.String">
+			<column name="modelName"/>
+		</property>
+		<property name="contentCount" type="java.lang.String">
+			<column name="contentCount"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

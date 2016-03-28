@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.SysSafety" table="sys_saftey">
+		
+		<id name="sysId" type="java.lang.Integer">
+			<column name="sysId" />
+			<generator class="native" />
+		</id>
+		<property name="isEnableLog" type="java.lang.Boolean">
+			<column name="isEnableLog"/>
+		</property>
+		<property name="ipLockTime" type="java.lang.Integer">
+			<column name="ipLockTime"/>
+		</property>
+		<property name="loginFailureCount" type="java.lang.Integer">
+			<column name="loginFailureCount"/>
+		</property>
+		<property name="isIPAccessProhibited" type="java.lang.Boolean">
+			<column name="isIPAccessProhibited"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

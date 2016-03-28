@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.User" table="sys_user">
+		
+		<id name="userId" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		
+		<property name="username" type="java.lang.String">
+			<column name="username"/>
+		</property>
+		
+		<property name="loginName" type="java.lang.String">
+			<column name="loginName" unique="true"/>
+		</property>
+		
+		<property name="loginPwd" type="java.lang.String">
+			<column name="loginPwd"/>
+		</property>
+		
+		<property name="sex" type="java.lang.String">
+			<column name="sex"/>
+		</property>
+		
+		<property name="birthday" type="java.lang.String">
+			<column name="birthday"/>
+		</property>
+		
+		<property name="address" type="java.lang.String">
+			<column name="address"/>
+		</property>
+		
+		<property name="contactTel" type="java.lang.String">
+			<column name="contactTel"/>
+		</property>
+		
+		<property name="email" type="java.lang.String">
+			<column name="email"/>
+		</property>
+		
+		<property name="isDuty" type="java.lang.String">
+			<column name="isDuty"/>
+		</property>
+		
+		<property name="onDutyDate" type="java.util.Date">
+			<column name="onDutyDate"/>
+		</property>
+		
+		<property name="remark" type="java.lang.String">
+			<column name="remark"/>
+		</property>
+		
+		<property name="rightsId" type="java.lang.Integer">
+			<column name="rightsId"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

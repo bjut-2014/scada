@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 导入资源文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+
+	<!-- 配置c3p0数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="initialPoolSize" value="${jdbc.initPoolSize}"></property>
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+	</bean>
+
+
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="tx" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" read-only="false" />
+			<tx:method name="delete*" read-only="false" />
+			<tx:method name="update*" read-only="false"/>
+			<tx:method name="select*" read-only="false"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 配置spring声明式事务 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.scada.service.impl.*.*(..))"
+			id="perform" />
+		<aop:advisor advice-ref="tx" pointcut-ref="perform" />
+	</aop:config>
+	
+	<!-- 配置系统日志 -->
+	<bean id="systemLog" class="com.scada.utils.SystemLog"/>
+	<aop:config>
+		<aop:aspect ref="systemLog">
+			<!-- <aop:pointcut expression="execution(* com.scada.service.impl.*.*(..))" id="sysLog"/> -->
+			<aop:after method="afterReturnLog" pointcut="execution(* com.scada.service.impl.*.save*(..)) and !bean(sysLogService)"/>
+			<aop:after method="afterReturnLog" pointcut="execution(* com.scada.service.impl.*.delete*(..)) and !bean(sysLogService)"/>
+			<aop:after method="afterReturnLog" pointcut="execution(* com.scada.service.impl.*.update*(..)) and !bean(sysLogService)"/>
+		</aop:aspect>
+	</aop:config>
+
+	
+	<!-- ============================================================================================================================================================ -->
+
+
+	<!-- ====================================业务运营管理==================================== -->
+	<!-- **收费管理** -->
+	<bean id="chargeDao" class="com.scada.dao.impl.ChargeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="chargeService" class="com.scada.service.impl.ChargeServiceImpl">
+		<property name="chargeDao" ref="chargeDao" />
+	</bean>
+	<bean id="chargeAction" class="com.scada.action.ChargeAction">
+		<property name="chargeService" ref="chargeService" />
+	</bean>
+	<!-- **系统设置管理** -->
+	<bean id="systemSettingDao" class="com.scada.dao.impl.SystemSettingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="systemSettingService" class="com.scada.service.impl.SystemSettingServiceImpl">
+		<property name="systemSettingDao" ref="systemSettingDao" />
+	</bean>
+	<bean id="systemSettingAction" class="com.scada.action.SystemSettingAction">
+		<property name="systemSettingService" ref="systemSettingService" />
+	</bean>
+	<!-- **区域管理** -->
+	<bean id="areaDao" class="com.scada.dao.impl.AreaDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="areaService" class="com.scada.service.impl.AreaServiceImpl">
+		<property name="areaDao" ref="areaDao" />
+	</bean>
+	<bean id="areaAction" class="com.scada.action.AreaAction">
+		<property name="areaService" ref="areaService" />
+	</bean>
+	<!-- **客户管理** -->
+	<bean id="clientDao" class="com.scada.dao.impl.ClientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="clientService" class="com.scada.service.impl.ClientServiceImpl">
+		<property name="clientDao" ref="clientDao" />
+	</bean>
+	<bean id="clientAction" class="com.scada.action.ClientAction">
+		<property name="clientService" ref="clientService" />
+	</bean>
+	<!-- **账务管理** -->
+	<bean id="accountDao" class="com.scada.dao.impl.AccountDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="accountService" class="com.scada.service.impl.AccountServiceImpl">
+		<property name="accountDao" ref="accountDao" />
+	</bean>
+	<bean id="accountAction" class="com.scada.action.AccountAction">
+		<property name="accountService" ref="accountService" />
+	</bean>
+	<!-- **计费管理** -->
+	<bean id="billingDao" class="com.scada.dao.impl.BillingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="billingService" class="com.scada.service.impl.BillingServiceImpl">
+		<property name="billingDao" ref="billingDao" />
+	</bean>
+	<bean id="billingAction" class="com.scada.action.BillingAction">
+		<property name="billingService" ref="billingService" />
+	</bean>
+
+	<!-- ====================================客户服务管理==================================== -->
+	<!-- **客户满意度管理** -->
+	<bean id="csrmDao" class="com.scada.dao.impl.CsrmDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 把service交给Dao -->
+	<bean id="csrmService" class="com.scada.service.impl.CsrmServiceImpl">
+		<property name="csrmDao" ref="csrmDao"></property>
+	</bean>
+	<bean id="csrmAction" class="com.scada.action.CsrmAction">
+		<property name="csrmService" ref="csrmService"></property>
+	</bean>
+	<!-- **服务质量管理** -->
+	<bean id="serviceQualityDao" class="com.scada.dao.impl.ServiceQualityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 把service交给Dao -->
+	<bean id="serviceQualityService" class="com.scada.service.impl.ServiceQualityServiceImpl">
+		<property name="serviceQualityDao" ref="serviceQualityDao"></property>
+	</bean>
+	<bean id="serviceQualityAction" class="com.scada.action.ServiceQualityAction">
+		<property name="serviceQualityService" ref="serviceQualityService"></property>
+	</bean>
+	<!-- **客户反馈管理** -->
+	<bean id="feedbackDao" class="com.scada.dao.impl.FeedbackDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 把service交给Dao -->
+	<bean id="feedbackService" class="com.scada.service.impl.FeedbackServiceImpl">
+		<property name="feedbackDao" ref="feedbackDao"></property>
+	</bean>
+	<bean id="feedbackAction" class="com.scada.action.FeedbackAction">
+		<property name="feedbackService" ref="feedbackService"></property>
+	</bean>
+
+	<!-- ====================================资产管理==================================== -->
+	<!-- **机房列表的基本配置** -->
+	<bean id="machineRoomDao" class="com.scada.dao.impl.MachineRoomDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="machineRoomService" class="com.scada.service.impl.MachineRoomServiceImpl">
+		<property name="machineRoomDao" ref="machineRoomDao" />
+	</bean>
+	<bean id="machineRoomAction" class="com.scada.action.MachineRoomAction">
+		<property name="machineRoomService" ref="machineRoomService" />
+	</bean>
+
+
+
+	<!-- ====================================数据采集==================================== -->
+	<!-- **配置采集** -->
+	<bean id="deviceDao" class="com.scada.dao.impl.DeviceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deviceService" class="com.scada.service.impl.DeviceServiceImpl">
+		<property name="deviceDao" ref="deviceDao" />
+	</bean>
+	<bean id="deviceAction" class="com.scada.action.DeviceAction">
+		<property name="deviceService" ref="deviceService" />
+	</bean>
+	 <!-- **事件** -->
+	 <bean id="caseDao" class="com.scada.dao.impl.CaseDaoImpl">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 <bean id="caseService" class="com.scada.service.impl.CaseServiceImpl">
+	 	<property name="caseDao" ref="caseDao" />
+	 </bean>
+	 <bean id="caseAction" class="com.scada.action.CaseAction">
+	 	<property name="caseService" ref="caseService"/>
+	 </bean>
+	<!-- **告警采集** -->
+	<bean id="warningDao" class="com.scada.dao.impl.WarningDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="warningService" class="com.scada.service.impl.WaringServiceImpl">
+		<property name="warningDao" ref="warningDao" />
+	</bean>
+	<bean id="warningAction" class="com.scada.action.WarningAction">
+		<property name="warningService" ref="warningService" />
+	</bean>
+	
+	 
+	<!-- **性能采集** -->
+	<!-- *遥测* -->
+	<bean id="telemetringDao" class="com.scada.dao.impl.TelemetringDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="telemetringService" class="com.scada.service.impl.TelemetringServiceImpl">
+		<property name="telemetringDao" ref="telemetringDao" />
+	</bean>
+	<!-- *遥信* -->
+	<bean id="telecommandDao" class="com.scada.dao.impl.TelecommandDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="telecommandService" class="com.scada.service.impl.TelecommandServiceImpl">
+		<property name="telecommandDao" ref="telecommandDao" />
+	</bean>
+	<bean id="pulseDao" class="com.scada.dao.impl.PulseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="pulseService" class="com.scada.service.impl.PulseServiceImpl">
+		<property name="pulseDao" ref="pulseDao" />
+	</bean>
+	<bean id="telemetringAction" class="com.scada.action.TelemetringAction">
+		<property name="telemetringService" ref="telemetringService" />
+		<property name="telecommandService" ref="telecommandService" />
+		<property name="pulseService" ref="pulseService" />
+	</bean>
+
+	<!-- ====================================协调调度==================================== -->
+	<!-- **文档管理** -->
+	<bean id="documentURLDao" class="com.scada.dao.impl.DocumentURLDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="documentURLService" class="com.scada.service.impl.DocumentURLServiceImpl">
+		<property name="documentURLDao" ref="documentURLDao" />
+	</bean>
+	<!-- **发布管理** -->
+	<bean id="publishDao" class="com.scada.dao.impl.PublishDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="publishService" class="com.scada.service.impl.PublishServiceImpl">
+		<property name="publishDao" ref="publishDao" />
+	</bean>
+	<bean id="publishAction" class="com.scada.action.PublishAction">
+		<property name="publishService" ref="publishService" />
+	</bean>
+
+
+
+
+	<!-- ====================================邮件系统管理==================================== -->
+	<!-- **敏感词** -->
+	<bean id="spamIdentifyDao" class="com.scada.dao.impl.SpamIdentifyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="spamIdentifyService" class="com.scada.service.impl.SpamIdentifyServiceImpl">
+		<property name="spamIdentifyDao" ref="spamIdentifyDao" />
+	</bean>
+	<bean id="spamIdentifyAction" class="com.scada.action.SpamIdentifyAction">
+		<property name="spamIdentifyService" ref="spamIdentifyService"/>
+		<property name="mailBlacklistService" ref="mailBlacklistService"/>
+	</bean>
+	<!-- **黑名单** -->
+	<bean id="mailBlacklistDao" class="com.scada.dao.impl.MailBlacklistDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="mailBlacklistService" class="com.scada.service.impl.MailBlacklistServiceImpl">
+		<property name="mailBlacklistDao" ref="mailBlacklistDao"/>
+	</bean>
+	<bean id="mailBlacklistAction" class="com.scada.action.MailBlacklistAction">
+		<property name="mailBlacklistService" ref="mailBlacklistService"/>
+	</bean>
+	
+	<!-- ====================================网站系统管理==================================== -->
+	<!-- **系统用户** -->
+	<bean id="userDao" class="com.scada.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userService" class="com.scada.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="userAction" class="com.scada.action.UserAction">
+		<property name="userService" ref="userService" />
+		<property name="userRightService" ref="userRightService"></property>
+	</bean>
+	<!-- **系统设置与配置管理** -->
+	<bean id="sysConfigDao" class="com.scada.dao.impl.SysConfigDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="sysConfigService" class="com.scada.service.impl.SysConfigServiceImpl">
+		<property name="sysConfigDao" ref="sysConfigDao"/>
+	</bean>
+	<bean id="sysConfigureAction" class="com.scada.action.SysConfigureAction">
+		<property name="sysConfigService" ref="sysConfigService"/>
+	</bean>
+	<bean id="sysManageAction" class="com.scada.action.SysManageAction">
+		<property name="sysConfigService" ref="sysConfigService"/>
+	</bean>
+	<!-- **权限管理** -->
+	<bean id="userRightDao" class="com.scada.dao.impl.UserRightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userRightService" class="com.scada.service.impl.UserRightServiceImpl">
+		<property name="userRightDao" ref="userRightDao" />
+	</bean>
+	<bean id="userRightAction" class="com.scada.action.UserRightAction">
+		<property name="userRightService" ref="userRightService" />
+	</bean>
+	<!-- **日志管理** -->
+	<bean id="sysLogDao" class="com.scada.dao.impl.SysLogDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="sysLogService" class="com.scada.service.impl.SysLogServiceImpl">
+		<property name="sysLogDao" ref="sysLogDao" />
+	</bean>
+	<bean id="sysLogAction" class="com.scada.action.SysLogAction">
+		<property name="sysLogService" ref="sysLogService"></property>
+		<property name="sysConfigService" ref="sysConfigService"></property>
+	</bean>
+	<!-- **故障管理** -->
+	<bean id="sysFaultDao" class="com.scada.dao.impl.SysFaultDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="sysFaultService" class="com.scada.service.impl.SysFaultServiceImpl">
+		<property name="sysFaultDao" ref="sysFaultDao" />
+	</bean>
+	<bean id="sysFaultAction" class="com.scada.action.SysFaultAction">
+		<property name="sysFaultService" ref="sysFaultService"></property>
+	</bean>
+	<!-- **登录** -->
+	<bean id="loginAction" class="com.scada.action.LoginAction">
+		<property name="sysConfigService" ref="sysConfigService"/>
+		<property name="userService" ref="userService"/>
+		<property name="userRightService" ref="userRightService"/>
+	</bean>
+	<!-- **模板管理** -->
+	<bean id="sysTemplateDao" class="com.scada.dao.impl.SysTemplateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="sysTemplateService" class="com.scada.service.impl.SysTemplateServiceImpl">
+		<property name="sysTemplateDao" ref="sysTemplateDao"/>
+	</bean>
+	<bean id="sysTemplateAction" class="com.scada.action.SysTemplateAction">
+		<property name="sysTemplateService" ref="sysTemplateService"/>
+	</bean>
+	<!-- **安全管理** -->
+	<bean id="sysSafetyDao" class="com.scada.dao.impl.SysSafetyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="sysSafetyService" class="com.scada.service.impl.SysSafetyServiceImpl">
+		<property name="sysSafetyDao" ref="sysSafetyDao"/>
+	</bean>
+	<bean id="sysSafetyAction" class="com.scada.action.SysSafetyAction">
+		<property name="sysSafetyService" ref="sysSafetyService"/>
+	</bean>
+
+	<!-- ====================================统一信息库==================================== -->
+	<!-- **工单管理** -->
+	<bean id="workOrderDao" class="com.scada.dao.impl.WorkOrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="workOrderService" class="com.scada.service.impl.WorkOrderServiceImpl">
+		<property name="workOrderDao" ref="workOrderDao" />
+	</bean>
+	<bean id="workOrderAction" class="com.scada.action.WorkOrderAction">
+		<property name="workOrderService" ref="workOrderService"></property>
+	</bean>
+
+
+    <!-- **yuan** -->
+
+     <!-- 配置个人信息 -->
+	 <bean id="fileManagerDao" class="com.scada.dao.impl.FileManagerDaoImpl">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 <bean id="fileManagerService" class="com.scada.service.impl.FileManagerServiceImpl">
+	 	<property name="fileManagerDao" ref="fileManagerDao" />
+	 </bean>
+	 <bean id="fileManagerAction" class="com.scada.action.FileManagerAction">
+	 	<property name="fileManagerService" ref="fileManagerService"/>
+	 </bean>
+	 
+	 <!-- 配置绩效成绩 -->
+   
+     <bean id="achievementDao" class="com.scada.dao.impl.AchievementDaoImpl" >
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 <bean id="achievementService" class="com.scada.service.impl.AchievementServiceImpl">
+	 	<property name="achievementDao" ref="achievementDao" />
+	 </bean>
+	 <bean id="achievementAction" class="com.scada.action.AchievementAction">
+	 	<property name="achievementService" ref="achievementService"/>
+	 </bean>
+	   <!-- 会议管理 -->
+
+     <bean id="meetManagerDao" class="com.scada.dao.impl.MeetManagerDaoImpl" >
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 <bean id="meetManagerService" class="com.scada.service.impl.MeetManagerServiceImpl">
+	 	<property name="meetManagerDao" ref="meetManagerDao" />
+	 </bean>
+	 <bean id="meetManagerAction" class="com.scada.action.MeetManagerAction">
+	 	<property name="meetManagerService" ref="meetManagerService"/>
+	 </bean>
+	 
+
+    <!-- **yuan** -->
+
+</beans>

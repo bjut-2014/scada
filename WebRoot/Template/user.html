@@ -1,0 +1,27 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <title></title> 
+    <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/base.css"/>
+    <script type="text/javascript" src="../Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/formui.css"/>
+    <script type="text/javascript" src="../Scripts/tb.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".datepicker").datepicker();
+
+            $('#list').hide();
+            $('#find').click(function () {
+                $('#list').show();
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <div class="alert alert-info">当前位置<b class="tip"></b>业务运营<b class="tip"></b>用户管理</div>
+</body>
+</html>

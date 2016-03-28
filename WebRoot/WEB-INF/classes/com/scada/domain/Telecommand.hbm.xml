@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Telecommand" table="telecommand">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="telec_code" type="java.lang.Integer">
+			<column name="telec_code"></column>
+		</property>
+		<property name="telec_name" type="java.lang.String">
+			<column name="telec_name"></column>
+		</property>
+		<property name="telec_station" type="java.lang.String">
+			<column name="telec_station"></column>
+		</property>
+		<property name="telec_device" type="java.lang.String">
+			<column name="telec_device"></column>
+		</property>
+		<property name="telec_type" type="java.lang.String">
+			<column name="telec_type"></column>
+		</property>
+		<property name="telec_value" type="java.lang.Integer">
+			<column name="telec_value"></column>
+		</property>
+		<property name="telec_displacement" type="java.lang.Integer">
+			<column name="telec_displacement"></column>
+		</property>
+		<property name="telec_maxdisplacement" type="java.lang.Integer">
+			<column name="telec_maxdisplacement"></column>
+		</property>
+		<property name="telec_polarity" type="java.lang.String">
+			<column name="telec_polarity"></column>
+		</property>
+		<property name="telec_state" type="java.lang.String">
+			<column name="telec_state"></column>
+		</property>
+	</class>
+</hibernate-mapping>

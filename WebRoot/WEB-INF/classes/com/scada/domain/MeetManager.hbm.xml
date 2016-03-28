@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.MeetManager" table="meet_manager">
+		
+		<id name="meet_id" type="java.lang.Integer">
+			<column name="meet_id" />
+			<generator class="native" />
+		</id>
+
+		<property name="meet_name" type="java.lang.String">
+			<column name="meet_name"></column>
+		</property>
+		
+		<property name="meet_title" type="java.lang.String">
+			<column name="meet_title"></column>
+		</property>
+		
+		<property name="meet_content" type="java.lang.String">
+			<column name="meet_content"></column>
+		</property>
+	
+		
+		<property name="people_num" type="java.lang.Integer">
+			<column name="people_num"></column>
+		</property>
+		
+		<property name="start_end" type="java.lang.String">
+			<column name="start_end"></column>
+		</property>
+		
+		<property name="location" type="java.lang.String">
+			<column name="location"></column>
+		</property>
+		
+		<property name="meetroom_num" type="java.lang.Integer">
+			<column name="meetroom_num"></column>
+		</property>
+		
+		<property name="useful_time" type="java.lang.String">
+			<column name="useful_time"></column>
+		</property>
+			
+		<property name="room_size" type="java.lang.Integer">
+			<column name="room_size"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

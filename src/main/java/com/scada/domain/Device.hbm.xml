@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Device" table="device">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="device_id" type="java.lang.Integer">
+			<column name="device_id"></column>
+		</property>
+		<property name="device_name" type="java.lang.String">
+			<column name="device_name"></column>
+		</property>
+		<property name="device_type" type="java.lang.String">
+			<column name="device_type"></column>
+		</property>
+		<property name="device_station" type="java.lang.String">
+			<column name="device_station"></column>
+		</property>
+		<property name="device_ruletype" type="java.lang.String">
+			<column name="device_ruletype"></column>
+		</property>
+		<property name="device_rulename" type="java.lang.String">
+			<column name="device_rulename"></column>
+		</property>
+		<property name="device_pipletype" type="java.lang.String">
+			<column name="device_pipletype"></column>
+		</property>
+		<property name="device_state" type="java.lang.String">
+			<column name="device_state"></column>
+		</property>
+		<property name="device_elec" type="java.lang.String">
+			<column name="device_elec"></column>
+		</property>
+	</class>
+</hibernate-mapping>

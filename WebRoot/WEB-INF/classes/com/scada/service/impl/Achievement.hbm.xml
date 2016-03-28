@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.entities.Achievement" table="sole_examination">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		
+		<property name="name" type="java.lang.String">
+			<column name="name"></column>
+		</property>
+		
+		<property name="sex" type="java.lang.String">
+			<column name="sex"></column>
+		</property>
+		
+		<property name="score_1" type="java.lang.Integer">
+			<column name="score_1"></column>
+		</property>
+		
+		<property name="performance_1" type="java.lang.Float">
+			<column name="performance_1"></column>
+		</property>
+		
+		<property name="num_1" type="java.lang.Integer">
+			<column name="num_1"></column>
+		</property>
+		
+		<property name="score_2" type="java.lang.Integer">
+			<column name="score_2"></column>
+		</property>
+		
+		<property name="performance_2" type="java.lang.Float">
+			<column name="performance_2"></column>
+		</property>
+		
+		<property name="num_2" type="java.lang.Integer">
+			<column name="num_2"></column>
+		</property>
+		
+		<property name="score_3" type="java.lang.Integer">
+			<column name="score_3"></column>
+		</property>
+		
+		<property name="performance_3" type="java.lang.Float">
+			<column name="performance_3"></column>
+		</property>
+		
+		<property name="num_3" type="java.lang.Integer">
+			<column name="num_3"></column>
+		</property>
+		
+		<property name="score_4" type="java.lang.Integer">
+			<column name="score_4"></column>
+		</property>
+		
+		<property name="performance_4" type="java.lang.Float">
+			<column name="performance_4"></column>
+		</property>
+		
+		<property name="num_4" type="java.lang.Integer">
+			<column name="num_4"></column>
+		</property>
+		
+		<property name="score_5" type="java.lang.Integer">
+			<column name="score_5"></column>
+		</property>
+		
+		<property name="performance_5" type="java.lang.Float">
+			<column name="performance_5"></column>
+		</property>
+		
+		<property name="num_5" type="java.lang.Integer">
+			<column name="num_5"></column>
+		</property>
+		
+		<property name="score_6" type="java.lang.Integer">
+			<column name="score_6"></column>
+		</property>
+		
+		<property name="performance_6" type="java.lang.Float">
+			<column name="performance_6"></column>
+		</property>
+		
+		<property name="num_6" type="java.lang.Integer">
+			<column name="num_6"></column>
+		</property>
+		
+		<!-- <one-to-one name="inforid" class="com.scada.entities.Information" /> -->
+		      
+
+		
+	</class>
+
+</hibernate-mapping>

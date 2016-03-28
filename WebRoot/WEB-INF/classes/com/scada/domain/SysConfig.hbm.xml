@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.SysConfig" table="sys_configure">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		
+		<property name="sysName" type="java.lang.String">
+			<column name="sysName"/>
+		</property>
+		
+		<property name="sysTitle" type="java.lang.String">
+			<column name="sysTitle" />
+		</property>
+		
+		<property name="sysLogoAddr" type="java.lang.String">
+			<column name="sysLogoAddr"/>
+		</property>
+		
+		<property name="sysBottomMsg" type="java.lang.String">
+			<column name="sysBottomMsg" />
+		</property>
+		
+		<property name="sessionTime" type="java.lang.Integer">
+			<column name="sessionTime" />
+		</property>
+		<property name="pageSize" type="java.lang.Integer">
+			<column name="pageSize" />
+		</property>
+		<property name="pageWidth" type="java.lang.Integer">
+			<column name="pageWidth" />
+		</property>
+	</class>
+</hibernate-mapping>

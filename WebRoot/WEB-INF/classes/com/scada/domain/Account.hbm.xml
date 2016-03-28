@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.scada.domain.Account" table="account">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID"/>
+   <generator class="native"/>
+  </id>
+  <property name="type" type="java.lang.String">
+   <column name="type"></column>
+  </property>
+  <property name="name" type="string">
+   <column name="name"></column>
+  </property>
+  <property name="ownername" type="string">
+   <column name="ownername"></column>
+  </property>
+  <property name="num" type="string">
+   <column name="num"></column>
+  </property>
+  <property name="area" type="java.lang.String">
+   <column name="area"></column>
+  </property>
+  <property name="chief" type="java.lang.String">
+   <column name="chief"></column>
+  </property>
+  
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Telemetring" table="telemetring">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="tele_code" type="java.lang.Integer">
+			<column name="tele_code"></column>
+		</property>
+		<property name="tele_name" type="java.lang.String">
+			<column name="tele_name"></column>
+		</property>
+		<property name="tele_station" type="java.lang.String">
+			<column name="tele_station"></column>
+		</property>
+		<property name="tele_device" type="java.lang.String">
+			<column name="tele_device"></column>
+		</property>
+		<property name="tele_type" type="java.lang.String">
+			<column name="tele_type"></column>
+		</property>
+		<property name="tele_int" type="java.lang.Integer">
+			<column name="tele_int"></column>
+		</property>
+		<property name="tele_float" type="java.lang.Float">
+			<column name="tele_float"></column>
+		</property>
+		<property name="tele_state" type="java.lang.String">
+			<column name="tele_state"></column>
+		</property>
+		<property name="tele_basicvalue" type="java.lang.Float">
+			<column name="tele_basicvalue"></column>
+		</property>
+		<property name="tele_factor" type="java.lang.Float">
+			<column name="tele_factor"></column>
+		</property>
+		<property name="tele_threshold" type="java.lang.Float">
+			<column name="tele_threshold"></column>
+		</property>
+		<property name="tele_deadvalue" type="java.lang.Float">
+			<column name="tele_deadvalue"></column>
+		</property>
+		<property name="tele_filtering" type="java.lang.Float">
+			<column name="tele_filtering"></column>
+		</property>
+
+	</class>
+</hibernate-mapping>

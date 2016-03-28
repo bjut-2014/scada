@@ -1,0 +1,358 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../Styles/bootstrap-new.min.css" />
+  <script type="text/javascript" src="../Scripts/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+  <style type="text/css">
+	.btn {
+		margin-bottom: 0;
+	}
+	.modal-body input {
+		display: inline;
+		width: 100px;
+		margin-bottom: 10px;
+	}
+  </style>
+</head>
+<body>
+	<div class="form-group">
+	  <label>字段类型：</label>
+	  <select class="form-control user-type" name="user-type" style="display: inline; width: 200px">
+	    <option value="">告警统计</option>
+	    <option value="">性能统计</option>
+	    <option value="">安全统计</option>
+	    <option value="">服务统计</option>
+	    <option value="">资源统计</option>
+	  </select>
+	  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字段内容：</label>
+  	  <input type="text" class="form-control" style="display: inline; width: 200px">
+  	  <button type="button" class="btn btn-primary" >搜索</button>&nbsp;&nbsp;
+  	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalAdd" style="float: right; margin-right: 100px;">添加</button>
+	</div>
+	<table class="table table-striped table-hover statisticsAlarm-table">
+	  <thead>
+	    <tr>
+	      <th>告警统计时间</th>
+	      <th>上次统计时间</th>
+	      <th>告警频率</th>
+	      <th>告警优先级</th>
+	      <th>告警处理状态</th>
+	      <th>告警处理人</th>
+	      <th>操作</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<!-- <table class="table table-striped table-hover statistics-perfomance-table" style="display: none">
+	  <thead>
+	    <tr>
+	      <th>性能统计时间</th>
+	      <th>上次统计时间</th>
+	      <th>性能频率</th>
+	      <th>性能优先级</th>
+	      <th>性能处理状态</th>
+	      <th>性能处理人</th>
+	      <th>操作</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>2</td>
+	      <td>1</td>
+	      <td>王XX</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>2015年7月26 12:11:34</td>
+	      <td>20</td>
+	      <td>未处理</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+	      	<button type="button" class="btn btn-info btn-sm statisticsAlarm-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table> -->
+	<nav style="float: right;margin-top: -18px;">
+	  <ul class="pagination">
+	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+	    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">5</a></li>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+	<div class="modal fade statisticsAlarm-modal-add" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">添加工单数据</h4>
+	      </div>
+	      <div class="modal-body clearfix">
+	      	<div class="modal-body-left" style="float: left;width: 190px;">
+	      		<div>&nbsp;&nbsp;&nbsp;&nbsp;工单编号：<input type="text" class="form-control statisticsAlarm-1"></div>
+	      		<div>工单处理人：<input type="text" class="form-control statisticsAlarm-2"></div>
+	      		<div>工单验收人：<input type="text" class="form-control statisticsAlarm-3"></div>
+	      	</div>
+	      	<div class="modal-body-right" style="float: right;;width: 190px;">
+	      		<div>工单申请人：<input type="text" class="form-control statisticsAlarm-4"></div>
+	      		<div>工单签发人：<input type="text" class="form-control statisticsAlarm-5"></div>
+	      		<div>工单审批人：<input type="text" class="form-control statisticsAlarm-6"></div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary statisticsAlarm-add" data-dismiss>添加</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="myModalModify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">编辑工单数据</h4>
+	        </div>
+	        <div class="modal-body clearfix">
+	        	<div class="modal-body-left" style="float: left;width: 190px;">
+	        		<div>&nbsp;&nbsp;&nbsp;&nbsp;工单编号：<input type="text" class="form-control modify-input-1"></div>
+	        		<div>工单处理人：<input type="text" class="form-control modify-input-3"></div>
+	        		<div>工单验收人：<input type="text" class="form-control modify-input-5"></div>
+	        	</div>
+	        	<div class="modal-body-right" style="float: right;;width: 190px;">
+	        		<div>工单申请人：<input type="text" class="form-control modify-input-2"></div>
+	        		<div>工单签发人：<input type="text" class="form-control modify-input-4"></div>
+	        		<div>工单审批人：<input type="text" class="form-control modify-input-6"></div>
+	        	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	          <button type="button" class="btn btn-primary statisticsAlarm-modify-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+	<div class="modal fade" id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">确认删除工单数据吗？</h4>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	          <button type="button" class="btn btn-primary statisticsAlarm-del-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	<script>
+		// $(function(){
+		// 	$('.user-type').change(function(){
+		// 		var user_type = $("select[name='user-type']");
+		// 		if(user_type.val() == "居民") {
+		// 			$(".statistics-alarm-table").show();
+		// 			$(".statistics-perfomance-table").hide();
+		// 		}else {
+		// 			$(".statistics-alarm-table").hide();
+		// 			$(".statistics-perfomance-table").show();
+		// 		}
+		// 	})
+		// })
+	</script>
+	<script type="text/javascript">
+		var statisticsAlarmLength = $('.statisticsAlarm-table th').length - 1;
+		var j = 6;
+		$('.statisticsAlarm-add').delegate('', 'click', function() {
+			j++;
+			var statisticsAlarmAddArr = [];
+
+			for (var i = 0; i < statisticsAlarmLength; i++) {
+				statisticsAlarmAddArr[i] = $('.statisticsAlarm-' + (i+1)).val();
+			}
+			
+			$('.statisticsAlarm-table').append("<tr class=statisticsAlarm-tr-" + j + "><td>" + statisticsAlarmAddArr[0] + "</td><td>" + statisticsAlarmAddArr[1] + "</td><td>" + statisticsAlarmAddArr[2] + "</td><td>" + statisticsAlarmAddArr[3] + "</td><td>" + statisticsAlarmAddArr[4] + "</td><td>" + statisticsAlarmAddArr[5] + "</td><td><button type='button' class='btn btn-info btn-sm statisticsAlarm-modify' data-toggle='modal' data-target='#myModalModify'>编辑</button> <button type='button' class='btn btn-info btn-sm statisticsAlarm-del' data-toggle='modal' data-target='#myModalDel'>删除</button></td></tr>");
+
+		    $(this).attr('data-dismiss', 'modal');
+		})		
+
+		$(document).delegate('.statisticsAlarm-modify', 'click', function() {
+			var statisticsAlarmModifyArr = [];
+			$('.statisticsAlarm-modify-confirm').removeAttr('data-target');
+
+			for (var i = 0; i < statisticsAlarmLength; i++) {
+				statisticsAlarmModifyArr[i] = $(this).parent().siblings().eq(i).html();
+				$('#myModalModify .modify-input-' + (i+1)).val(statisticsAlarmModifyArr[i]);
+			}
+
+			var statisticsAlarmTrAttr = $(this).parent().parent().attr("class");
+			$('.statisticsAlarm-modify-confirm').attr('data-target', statisticsAlarmTrAttr);
+		})
+
+		$('.statisticsAlarm-modify-confirm').delegate('', 'click', function() {
+			var statisticsAlarmModifyArr = [],
+				modifyId = $(this).attr('data-target');
+
+			for (var i = 0; i < statisticsAlarmLength; i++) {
+				statisticsAlarmModifyArr[i] = $('#myModalModify .modify-input-' + (i+1)).val();
+				$('.' + modifyId).children().eq(i).html(statisticsAlarmModifyArr[i]);
+			}
+
+			$(this).attr('data-dismiss', 'modal');
+		})
+
+		$(document).delegate('.statisticsAlarm-del', 'click', function () {
+			var statisticsAlarmTrAttr = $(this).parent().parent().attr("class");
+			$('.statisticsAlarm-del-confirm').attr('data-target', statisticsAlarmTrAttr);
+		})
+
+		$('.statisticsAlarm-del-confirm').delegate('', 'click', function() {
+			var delId = $(this).attr('data-target');
+
+			$('.' + delId).remove();
+			$(this).attr('data-dismiss', 'modal');
+		})
+	</script>
+</body>
+</html>

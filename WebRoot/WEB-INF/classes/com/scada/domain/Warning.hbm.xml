@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Warning" table="warning">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="warning_time" type="java.util.Date">
+			<column name="warning_time"></column>
+		</property>
+		<property name="warning_type" type="java.lang.String">
+			<column name="warning_type"></column>
+		</property>
+		<property name="warning_subtype" type="java.lang.String">
+			<column name="warning_subtype"></column>
+		</property>
+		<property name="warning_level" type="java.lang.String">
+			<column name="warning_level"></column>
+		</property>
+		<property name="station" type="java.lang.String">
+			<column name="station"></column>
+		</property>
+		<property name="device" type="java.lang.String">
+			<column name="device"></column>
+		</property>
+		<property name="warning_obj" type="java.lang.String">
+			<column name="warning_obj"></column>
+		</property>
+		<property name="warning_info" type="java.lang.String">
+			<column name="warning_info"></column>
+		</property>
+	</class>
+</hibernate-mapping>

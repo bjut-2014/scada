@@ -1,0 +1,56 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置hibernate的基本属性 -->
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/scada</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property> -->
+		
+		
+		<!-- 方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!-- 是否显示及格式化sql -->
+		<property name="hibernate.show_sql">false</property>
+		<!-- <property name="hibernate.format_sql">true</property> -->
+		<!-- 生成数据表的策略 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		
+		<mapping resource="com/scada/domain/MachineRoom.hbm.xml" />
+		<mapping resource="com/scada/domain/SpamIdentify.hbm.xml" />
+		<mapping resource="com/scada/domain/User.hbm.xml" />
+		<mapping resource="com/scada/domain/UserRight.hbm.xml" />
+		<mapping resource="com/scada/domain/SysLog.hbm.xml" />
+		<mapping resource="com/scada/domain/WorkOrder.hbm.xml" />
+		<mapping resource="com/scada/domain/Billing.hbm.xml" />
+		<mapping resource="com/scada/domain/SystemSetting.hbm.xml" />
+		<mapping resource="com/scada/domain/Area.hbm.xml" />
+		<mapping resource="com/scada/domain/Csrm.hbm.xml" />
+		<mapping resource="com/scada/domain/Feedback.hbm.xml" />
+		<mapping resource="com/scada/domain/Account.hbm.xml" />
+		<mapping resource="com/scada/domain/Client.hbm.xml" />
+		<mapping resource="com/scada/domain/ServiceQuality.hbm.xml" />
+		<mapping resource="com/scada/domain/Charge.hbm.xml" />
+		<mapping resource="com/scada/domain/SysFault.hbm.xml" />
+		<mapping resource="com/scada/domain/Telemetring.hbm.xml" />
+		<mapping resource="com/scada/domain/Telecommand.hbm.xml" />
+		<mapping resource="com/scada/domain/DocumentURL.hbm.xml" />
+		<mapping resource="com/scada/domain/Publish.hbm.xml" />
+		<mapping resource="com/scada/domain/Pulse.hbm.xml" />
+		<mapping resource="com/scada/domain/Warning.hbm.xml" />
+		<mapping resource="com/scada/domain/EleCase.hbm.xml" />
+		<mapping resource="com/scada/domain/Device.hbm.xml" />
+		<mapping resource="com/scada/domain/Station.hbm.xml" />
+		<mapping resource="com/scada/domain/MailBlacklist.hbm.xml"/>
+		<mapping resource="com/scada/domain/SysConfig.hbm.xml"/>
+		<mapping resource="com/scada/domain/SysSafety.hbm.xml"/>
+		
+		<mapping resource="com/scada/domain/FileManager.hbm.xml" />
+		<mapping resource="com/scada/domain/Achievement.hbm.xml" />
+		<mapping resource="com/scada/domain//MeetManager.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

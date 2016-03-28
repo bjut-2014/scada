@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.UserRight" table="sys_user_right">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="rightId" type="java.lang.Integer">
+			<column name="rightId"/>
+		</property>
+		
+		<property name="dataAcquisition" type="boolean">
+			<column name="dataAcquisition"/>
+		</property>
+		
+		<property name="coordinatedDispatch" type="boolean">
+			<column name="coordinatedDispatch"/>
+		</property>
+		
+		<property name="unifiedDatabase" type="boolean">
+			<column name="unifiedDatabase"/>
+		</property>
+		
+		<property name="applicationShow" type="boolean">
+			<column name="applicationShow"/>
+		</property>
+		
+		<property name="serviceOperation" type="boolean">
+			<column name="serviceOperation"/>
+		</property>
+		
+		<property name="customerService" type="boolean">
+			<column name="customerService"/>
+		</property>
+		
+		<property name="comprehensiveOffice" type="boolean">
+			<column name="comprehensiveOffice"/>
+		</property>
+		
+		<property name="wanSystem" type="boolean">
+			<column name="wanSystem"/>
+		</property>
+		
+		<property name="websiteSystem" type="boolean">
+			<column name="websiteSystem"/>
+		</property>
+		
+		<property name="mailSystem" type="boolean">
+			<column name="mailSystem"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

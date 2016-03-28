@@ -1,0 +1,62 @@
+﻿.chur-alert .alert {
+    width: 350px;
+    height: 180px;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -99px;
+    left: 50%;
+    top: 50%;
+    display: none;
+    z-index: 9999;
+}
+
+.chur-alert .alert .context {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    text-align: center;
+    background: #FFF;
+    top: 35px;
+    bottom: 45px;
+    line-height: 122px;
+    border-radius: 5px;
+}
+
+.chur-alert .alert-primary .context {
+    background: url(../img/primary.png) 30px center no-repeat #FFF;
+}
+
+.chur-alert .alert-info .context {
+    background: url(../img/info.png) 30px center no-repeat #FFF;
+}
+
+.chur-alert .alert-success .context {
+    background: url(../img/success.png) 30px center no-repeat #FFF;
+}
+
+.chur-alert .alert-warning .context {
+    background: url(../img/warning.png) 30px center no-repeat #FFF;
+}
+
+.chur-alert .alert-danger .context {
+    background: url(../img/danger.png) 30px center no-repeat #FFF;
+}
+
+.alert-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    border: 0;
+    z-index: 1;
+    background: #5e5959;
+}
+
+.chur-alert .alert .rightbtn {
+    text-align: right;
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../Styles/bootstrap-new.min.css" />
+  <script type="text/javascript" src="../Scripts/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+  <style type="text/css">
+	.btn {
+		margin-bottom: 0;
+	}
+	.modal-body input {
+		display: inline;
+		width: 100px;
+		margin-bottom: 10px;
+	}
+  </style>
+</head>
+<body>
+	<div class="form-group">
+	  <label>字段类型：</label>
+	  <select class="form-control user-type" name="user-type" style="display: inline; width: 200px">
+	    <option value="">工单编号</option>
+	    <option value="">工单申请人</option>
+	    <option value="">工单签发人</option>
+	    <option value="">工单审批人</option>
+	  </select>
+	  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字段内容：</label>
+	  <input type="text" class="form-control" style="display: inline; width: 200px">
+	  <button type="button" class="btn btn-primary" >搜索</button>&nbsp;&nbsp;
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalAdd" style="float: right; margin-right: 100px;">添加</button>
+	</div>
+	<table class="table table-striped table-hover workorder-table">
+	  <thead>
+	    <tr>
+	      <th>工单编号</th>
+	      <th>工单申请人</th>
+	      <th>工单处理人</th>
+	      <th>工单签发人</th>
+	      <th>工单验收人</th>
+	      <th>工单审批人</th>
+	      <th>操作</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr class="workorder-tr-1">
+	      <td>1001</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-2">
+	      <td>1002</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-3">
+	      <td>1003</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-4">
+	      <td>1004</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-5">
+	      <td>1005</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-6">
+	      <td>1006</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-7">
+	      <td>1007</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-8">
+	      <td>1008</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	    <tr class="workorder-tr-9">
+	      <td>1009</td>
+	      <td>测试1</td>
+	      <td>测试2</td>
+	      <td>测试3</td>
+	      <td>测试4</td>
+	      <td>测试5</td>
+	      <td>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-modify" data-toggle="modal" data-target="#myModalModify">编辑</button>
+  	      	<button type="button" class="btn btn-info btn-sm workorder-del" data-toggle="modal" data-target="#myModalDel">删除</button>
+  	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<nav style="float: right;margin-top: -18px;">
+	  <ul class="pagination">
+	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+	    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">5</a></li>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+	<div class="modal fade workorder-modal-add" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">添加工单数据</h4>
+	      </div>
+	      <div class="modal-body clearfix">
+	      	<div class="modal-body-left" style="float: left;width: 190px;">
+	      		<div>&nbsp;&nbsp;&nbsp;&nbsp;工单编号：<input type="text" class="form-control workorder-1"></div>
+	      		<div>工单处理人：<input type="text" class="form-control workorder-2"></div>
+	      		<div>工单验收人：<input type="text" class="form-control workorder-3"></div>
+	      	</div>
+	      	<div class="modal-body-right" style="float: right;;width: 190px;">
+	      		<div>工单申请人：<input type="text" class="form-control workorder-4"></div>
+	      		<div>工单签发人：<input type="text" class="form-control workorder-5"></div>
+	      		<div>工单审批人：<input type="text" class="form-control workorder-6"></div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary workorder-add" data-dismiss>添加</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="myModalModify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">编辑工单数据</h4>
+	        </div>
+	        <div class="modal-body clearfix">
+	        	<div class="modal-body-left" style="float: left;width: 190px;">
+	        		<div>&nbsp;&nbsp;&nbsp;&nbsp;工单编号：<input type="text" class="form-control modify-input-1"></div>
+	        		<div>工单处理人：<input type="text" class="form-control modify-input-3"></div>
+	        		<div>工单验收人：<input type="text" class="form-control modify-input-5"></div>
+	        	</div>
+	        	<div class="modal-body-right" style="float: right;;width: 190px;">
+	        		<div>工单申请人：<input type="text" class="form-control modify-input-2"></div>
+	        		<div>工单签发人：<input type="text" class="form-control modify-input-4"></div>
+	        		<div>工单审批人：<input type="text" class="form-control modify-input-6"></div>
+	        	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	          <button type="button" class="btn btn-primary workorder-modify-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+	<div class="modal fade" id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h4 class="modal-title" id="myModalLabel">确认删除工单数据吗？</h4>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	          <button type="button" class="btn btn-primary workorder-del-confirm" data-dismiss>确认</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+<script type="text/javascript">
+	var workorderLength = $('.workorder-table th').length - 1;
+	var j = 9;
+	$('.workorder-add').delegate('', 'click', function() {
+		j++;
+		var workorderAddArr = [];
+
+		for (var i = 0; i < workorderLength; i++) {
+			workorderAddArr[i] = $('.workorder-' + (i+1)).val();
+		}
+		
+		$('.workorder-table').append("<tr class=workorder-tr-" + j + "><td>" + workorderAddArr[0] + "</td><td>" + workorderAddArr[1] + "</td><td>" + workorderAddArr[2] + "</td><td>" + workorderAddArr[3] + "</td><td>" + workorderAddArr[4] + "</td><td>" + workorderAddArr[5] + "</td><td><button type='button' class='btn btn-info btn-sm workorder-modify' data-toggle='modal' data-target='#myModalModify'>编辑</button> <button type='button' class='btn btn-info btn-sm workorder-del' data-toggle='modal' data-target='#myModalDel'>删除</button></td></tr>");
+
+	    $(this).attr('data-dismiss', 'modal');
+	})		
+
+	$(document).delegate('.workorder-modify', 'click', function() {
+		var workorderModifyArr = [];
+		$('.workorder-modify-confirm').removeAttr('data-target');
+
+		for (var i = 0; i < workorderLength; i++) {
+			workorderModifyArr[i] = $(this).parent().siblings().eq(i).html();
+			$('#myModalModify .modify-input-' + (i+1)).val(workorderModifyArr[i]);
+		}
+
+		var workorderTrAttr = $(this).parent().parent().attr("class");
+		$('.workorder-modify-confirm').attr('data-target', workorderTrAttr);
+	})
+
+	$('.workorder-modify-confirm').delegate('', 'click', function() {
+		var workorderModifyArr = [],
+			modifyId = $(this).attr('data-target');
+
+		for (var i = 0; i < workorderLength; i++) {
+			workorderModifyArr[i] = $('#myModalModify .modify-input-' + (i+1)).val();
+			$('.' + modifyId).children().eq(i).html(workorderModifyArr[i]);
+		}
+
+		$(this).attr('data-dismiss', 'modal');
+	})
+
+	$(document).delegate('.workorder-del', 'click', function () {
+		var workorderTrAttr = $(this).parent().parent().attr("class");
+		$('.workorder-del-confirm').attr('data-target', workorderTrAttr);
+	})
+
+	$('.workorder-del-confirm').delegate('', 'click', function() {
+		var delId = $(this).attr('data-target');
+
+		$('.' + delId).remove();
+		$(this).attr('data-dismiss', 'modal');
+	})
+</script>
+</body>
+</html>

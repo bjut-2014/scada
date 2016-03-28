@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.SysFault" table="sys_fault">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		
+		<property name="equipmentId" type="java.lang.String">
+			<column name="equipmentId"/>
+		</property>
+		
+		<property name="equipmentType" type="java.lang.String">
+			<column name="equipmentType"/>
+		</property>
+		
+		<property name="equipmentFailureTime" type="java.util.Date">
+			<column name="equipmentFailureTime"/>
+		</property>
+		
+		<property name="equipmentFailureReason" type="java.lang.String">
+			<column name="equipmentFailureReason"/>
+		</property>
+		
+		<property name="equipmentRepairContent" type="java.lang.String">
+			<column name="equipmentRepairContent"/>
+		</property>
+		
+		<property name="equipmentPersonInCharge" type="java.lang.String">
+			<column name="equipmentPersonInCharge"/>
+		</property>
+		
+		<property name="equipmentMaintenance" type="java.lang.String">
+			<column name="equipmentMaintenance"/>
+		</property>
+		
+		<property name="equipmentRepairTime" type="java.util.Date">
+			<column name="equipmentRepairTime"/>
+		</property>
+		
+		<property name="eqequipmentRepairCounts" type="java.lang.Integer">
+			<column name="eqequipmentRepairCounts"/>
+		</property>
+		
+		<property name="equipmentRemark" type="java.lang.String">
+			<column name="equipmentRemark"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

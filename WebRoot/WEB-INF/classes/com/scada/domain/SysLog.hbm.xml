@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.SysLog" table="sys_log">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="logId" />
+			<generator class="native" />
+		</id>
+		<property name="username" type="java.lang.String">
+			<column name="username"/>
+		</property>
+		<property name="didWhat" type="java.lang.String">
+			<column name="didWhat"/>
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="createTime"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

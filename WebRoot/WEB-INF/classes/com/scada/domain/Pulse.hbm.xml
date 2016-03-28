@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Pulse" table="pulse">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="pulse_code" type="java.lang.Integer">
+			<column name="pulse_code"></column>
+		</property>
+		<property name="pulse_name" type="java.lang.String">
+			<column name="pulse_name"></column>
+		</property>
+		<property name="pulse_station" type="java.lang.String">
+			<column name="pulse_station"></column>
+		</property>
+		<property name="pulse_device" type="java.lang.String">
+			<column name="pulse_device"></column>
+		</property>
+		<property name="pulse_int" type="java.lang.Integer">
+			<column name="pulse_int"></column>
+		</property>
+		<property name="pulse_float" type="java.lang.Float">
+			<column name="pulse_float"></column>
+		</property>
+		<property name="pulse_basicvalue" type="java.lang.Integer">
+			<column name="pulse_basicvalue"></column>
+		</property>
+		<property name="pulse_fullcodevalue" type="java.lang.Integer">
+			<column name="pulse_fullcodevalue"></column>
+		</property>
+		<property name="pulse_factor" type="java.lang.Float">
+			<column name="pulse_factor"></column>
+		</property>
+		<property name="pulse_state" type="java.lang.String">
+			<column name="pulse_state"></column>
+		</property>
+	</class>
+</hibernate-mapping>

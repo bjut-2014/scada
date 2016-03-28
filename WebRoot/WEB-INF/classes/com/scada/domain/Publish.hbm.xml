@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.Publish" table="publish">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="title" type="java.lang.String">
+			<column name="title"></column>
+		</property>
+		<property name="date" type="java.util.Date">
+			<column name="date"></column>
+		</property>
+		<property name="context" type="java.lang.String">
+			<column name="context"></column>
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type"></column>
+		</property>
+		<property name="user" type="java.lang.String">
+			<column name="user"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

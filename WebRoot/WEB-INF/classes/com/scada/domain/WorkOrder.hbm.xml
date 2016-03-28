@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.WorkOrder" table="uniform_workorder">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		
+		<property name="workOrderId" type="java.lang.Integer">
+			<column name="workOrderId"/>
+		</property>
+		
+		<property name="workOrderApplicant" type="java.lang.String">
+			<column name="workOrderApplicant"/>
+		</property>
+		
+		<property name="workOrderDeal" type="java.lang.String">
+			<column name="workOrderDeal"/>
+		</property>
+		
+		<property name="workOrderIssuer"  type="java.lang.String">
+			<column name="workOrderIssuer"/>
+		</property>
+		
+		<property name="workOrderAcceptance" type="java.lang.String">
+			<column name="workOrderAcceptance"/>
+		</property>
+		
+		<property name="workOrderApproval" type="java.lang.String">
+			<column name="workOrderApproval"/>
+		</property>
+
+	</class>
+</hibernate-mapping>

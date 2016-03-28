@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+	<!-- 配置文件改了以后不用重新启动 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 把struts的请求委托给spring管理, 作用:创建Action实例的过程由spring处理,其他的还是有struts2自己处理 -->
+	<constant name="struts.objectFactory" value="spring" />
+
+	<package name="jsonManager" extends="struts-default,json-default">
+		<action name="TelemetringAjax"  class="com.scada.action.TelemetringAjaxAction">  
+            <result type="json"/>  
+        </action>    
+        <action name="DeviceAjax"  class="com.scada.action.DeviceAjaxAction">  
+            <result type="json"/>  
+        </action>
+        <action name="WarningAjax"  class="com.scada.action.WarningAjaxAction">  
+            <result type="json"/>  
+        </action>
+	</package> 
+
+
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<!-- session过期拦截器 -->
+		<interceptors>
+            <interceptor name="loginedCheck" class="com.scada.interceptor.LoginedCheckInterceptor"/>
+            <interceptor-stack name="mystack">
+                <interceptor-ref name="loginedCheck" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+		
+		<!-- 所有的action都配置一个拦截器 -->
+		<default-interceptor-ref name="mystack">
+		</default-interceptor-ref>
+		
+		<!-- 定义全局result -->
+       	<global-results>
+           <result name="tologin" type="redirect">/sessionout.jsp</result>
+       	</global-results>
+		
+		<action name="machineRoomAction_*" method="{1}" class="machineRoomAction">
+			<result name="show">/WEB-INF/page/template/machine.jsp</result>
+		</action>
+
+		<action name="clientAction_*" method="{1}"
+			class="com.scada.action.ClientAction">
+			<result name="show">/WEB-INF/page/template/client.jsp</result>
+			<result name="home">/WEB-INF/page/template/client.jsp</result>
+			<result name="save">/WEB-INF/page/template/client.jsp</result>
+		</action>
+
+		<action name="accountAction_*" method="{1}"
+			class="com.scada.action.AccountAction">
+			<result name="show">/WEB-INF/page/template/account.jsp</result>
+			<result name="home">/WEB-INF/page/template/account.jsp</result>
+			<result name="save">/WEB-INF/page/template/account.jsp</result>
+		</action>
+		
+		<action name="analysisAction_*" method="{1}" class="com.scada.action.AnalysisAction">
+			<result>/WEB-INF/page/template/analysis.jsp</result>
+		</action>
+
+		<action name="chargeAction_*" method="{1}"
+			class="com.scada.action.ChargeAction">
+			<result name="show">/WEB-INF/page/template/charge.jsp</result>
+			<result name="home">/WEB-INF/page/template/charge.jsp</result>
+			<result name="save">/WEB-INF/page/template/charge.jsp</result>
+		</action>
+
+		<action name="billingAction_*" method="{1}"
+			class="com.scada.action.BillingAction">
+			<result name="show">/WEB-INF/page/template/billing.jsp</result>
+		</action>
+
+		<action name="systemSettingAction_*" method="{1}"
+			class="systemSettingAction">
+			<result name="show">/WEB-INF/page/template/systemSetting.jsp</result>
+			<result name="home">/WEB-INF/page/template/systemSetting.jsp</result>
+			<result name="save">/WEB-INF/page/template/systemSetting.jsp</result>
+		</action>
+
+		<action name="areaAction_*" method="{1}"
+			class="com.scada.action.AreaAction">
+			<result name="show">/WEB-INF/page/template/area.jsp</result>
+			<result name="home">/WEB-INF/page/template/area.jsp</result>
+			<result name="save">/WEB-INF/page/template/area.jsp</result>
+		</action>
+
+		<action name="feedbackAction_*" method="{1}"
+			class="com.scada.action.FeedbackAction">
+			<result name="show">/WEB-INF/page/template/feedback.jsp</result>
+			<result name="home">/WEB-INF/page/template/feedback.jsp</result>
+			<result name="save">/WEB-INF/page/template/feedback.jsp</result>
+		</action>
+
+		<action name="csrmAction_*" method="{1}"
+			class="com.scada.action.CsrmAction">
+			<result name="show">/WEB-INF/page/template/csrm.jsp</result>
+			<result name="home">/WEB-INF/page/template/csrm.jsp</result>
+			<result name="save">/WEB-INF/page/template/csrm.jsp</result>
+		</action>
+
+		<action name="serviceQualityAction_*" method="{1}"
+			class="com.scada.action.ServiceQualityAction">
+			<result name="show">/WEB-INF/page/template/servicequality.jsp
+			</result>
+			<result name="home">/WEB-INF/page/template/servicequality.jsp
+			</result>
+			<result name="save">/WEB-INF/page/template/servicequality.jsp
+			</result>
+		</action>
+		
+		<action name="CaseAction_*" method="{1}" class="com.scada.action.CaseAction">
+			<result name="caseshow">/WEB-INF/page/document/Case.jsp</result>
+			<result name="sourceshow">/WEB-INF/page/document/Source.jsp</result>
+			<result name="problemshow">/WEB-INF/page/document/Problem.jsp</result>
+			<result name="edit">/WEB-INF/page/document/CaseEdit.jsp</result>
+		</action>
+
+		<action name="PublishAction_*" method="{1}" class="com.scada.action.PublishAction">
+			<result name="show">/WEB-INF/page/document/publish_show.jsp</result>
+			<result name="publish">/WEB-INF/page/document/publish.jsp</result>
+			<result name="p">/WEB-INF/page/document/publish_show.jsp</result>
+			<result name="update">/WEB-INF/page/document/publish_show.jsp</result>
+			<result name="delete">/WEB-INF/page/document/publish_show.jsp</result>
+			<result name="edit">/WEB-INF/page/document/publish_edit.jsp</result>
+		</action>
+		
+		<action name="TelemetringAction_*" method="{1}" class="com.scada.action.TelemetringAction">
+			<result name="show">/WEB-INF/page/data/Telemetring.jsp</result>
+			<result name="option">/WEB-INF/page/data/TelemetringOption.jsp</result>
+			<result  name="save" >/WEB-INF/page/data/Telecommand.jsp</result>
+			<result  name="pulse" >/WEB-INF/page/data/pulse.jsp</result>
+			<result name="edit">/WEB-INF/page/data/TelemetringOptionEdit.jsp</result>
+			<result name="update">/WEB-INF/page/data/TelemetringOption.jsp</result>
+		</action>
+		
+		<action name="DeviceAction_*" method="{1}" class="com.scada.action.DeviceAction">
+			<result name="show">/WEB-INF/page/data/device.jsp</result>
+			<result name="option">/WEB-INF/page/data/DeviceOption.jsp</result>
+			<result name="edit">/WEB-INF/page/data/DeviceOptionEdit.jsp</result>
+			<result name="update">/WEB-INF/page/data/DeviceOption.jsp</result>
+			<result name="delete">/WEB-INF/page/data/DeviceOption.jsp</result>
+		</action>
+		
+		<action name="WarningAction_*" method="{1}" class="com.scada.action.WarningAction">
+			<result name="show">/WEB-INF/page/data/warning.jsp</result>
+			<result name="SecureShow">/WEB-INF/page/data/Secure.jsp</result>
+			<result name="option">/WEB-INF/page/data/WarningOption.jsp</result>
+			<result name="SecureShowOption">/WEB-INF/page/data/SecureOption.jsp</result>
+			<result name="edit">/WEB-INF/page/data/WarningOptionEdit.jsp</result>
+			<result name="SecureShowEdit">/WEB-INF/page/data/SecureOptionEdit.jsp</result>
+			<result name="update">/WEB-INF/page/data/WarningOption.jsp</result>
+			<result name="SecureShowUpdate">/WEB-INF/page/data/SecureOption.jsp</result>
+			<result name="delete">/WEB-INF/page/data/WarningOption.jsp</result>
+		</action>
+		
+		<action name="upload1" class="com.scada.action.documentsAction">		
+			<result name="success">/WEB-INF/page/template/uploadList.jsp</result>
+		</action>
+		<action name="doc" class="com.scada.action.DocArrayAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">50000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="savePath">/upload</param>
+			<result>/input_doc.jsp</result>
+			<result name="input">/input_doc.jsp</result>
+		</action>
+		
+		<action name="docList_*" class="com.scada.action.DocListAction" method="{1}">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">50000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="savePath">/upload</param>
+			<result name = "show">/show_docList.jsp</result>
+			<result name="delete">/show_docList.jsp</result>
+			<result name= "save">/show_docList.jsp</result>
+		</action>
+		<action name="downLoad" class="com.scada.action.DocDownloadAction">
+			<interceptor-ref name="createSession"/> 
+			<interceptor-ref name="defaultStack"/>			
+			<result type="stream">
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">40960</param>
+			</result>
+		</action>
+
+		<!-- ***************邮件管理************* -->
+		<!-- 邮箱认证 -->
+		<action name="mailLogin" class="com.scada.action.MaiLoginlAction">
+			<result>/WEB-INF/page/mail/mailHome.jsp</result>
+			<result name="login">/WEB-INF/page/mail/mailLogin.jsp</result>
+		</action>
+		<!-- 邮件列表 -->
+		<action name="mailLoginShow" class="com.scada.action.MaiLoginlAction"
+			method="show">
+			<result name="show">/WEB-INF/page/mail/mailLogin.jsp</result>
+		</action>
+		<!-- 邮件详细信息 -->
+		<action name="mailMessgaeShow" class="com.scada.action.MailOperationAction">
+			<result>/WEB-INF/page/mail/showMail.jsp</result>
+		</action>
+		<!-- 垃圾邮件过滤 -->
+		<action name="spamIdentifyAction_*" class="com.scada.action.SpamIdentifyAction"
+			method="{1}">
+			<result name="home">/WEB-INF/page/mail/spamIdentify.jsp</result>
+			<result name="save" type="redirectAction">spamIdentifyAction_home.action</result>
+			<result name="delete" type="redirectAction">spamIdentifyAction_home.action</result>
+		</action>
+		<!-- 黑名单 -->
+		<action name="mailBlacklistAction_*" class="com.scada.action.MailBlacklistAction" method="{1}">
+			<result name="save" type="redirectAction">spamIdentifyAction_home.action</result>
+			<result name="delete" type="redirectAction">spamIdentifyAction_home.action</result>
+		</action>
+		<!-- 智能抗攻击 -->
+		<action name="mailAntiAttackAction_*" class="com.scada.action.MailAntiAttackAction" method="{1}">
+			<result name="show">/WEB-INF/page/mail/antiAttack.jsp</result>
+		</action>
+		<!-- ********************************** -->
+
+
+		<!-- ***************网站系统管理************* -->
+		<!-- 用户权限 -->
+		<action name="userRightAction_*" class="com.scada.action.UserRightAction"
+			method="{1}">
+			<result name="success">/WEB-INF/page/system/authority.jsp</result>
+			<result name="input" type="redirectAction">userRightAction_list</result>
+			<result name="delete" type="redirectAction">userRightAction_list</result>
+		</action>
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="com.scada.action.UserAction" method="{1}">
+			<result>/WEB-INF/page/system/user.jsp</result>
+			<result name="list">/WEB-INF/page/system/user.jsp</result>
+			<result name="add" type="redirectAction">userAction_list.action</result>
+		</action>
+		<!-- 登录管理 -->
+		<action name="loginAction_*" class="com.scada.action.LoginAction"
+			method="{1}">
+			<result name="error">/WEB-INF/page/menu/login.jsp</result>
+			<result name="home">/WEB-INF/page/menu/home.jsp</result>
+			<result name="exit" type="redirect">/index.jsp</result>
+		</action>
+		<!-- 系统日志 -->
+		<action name="sysLogAction_*" class="com.scada.action.SysLogAction"
+			method="{1}">
+			<result name="show">/WEB-INF/page/system/journal.jsp</result>
+			<result name="delete" type="redirectAction">sysLogAction_show.action?pageNo=1</result>
+			<result name="deleteAll" type="redirectAction">sysLogAction_show?pageNo=1</result>
+			<result name="sysStart">/WEB-INF/page/system/sysStartJournal.jsp</result>
+		</action>
+		<!-- 故障管理 -->
+		<action name="sysFaultAction_*" class="com.scada.action.SysFaultAction" method="{1}">
+			<result name="show">/WEB-INF/page/system/fault.jsp</result>
+			<result name="add" type="redirectAction">sysFaultAction_show</result>
+		</action>
+		<!-- 系统模板 -->
+		<action name="sysTemplateAction_*" class="com.scada.action.SysTemplateAction"
+			method="{1}">
+			<result name="show">/WEB-INF/page/system/template.jsp</result>
+			<result name="mainShow">/WEB-INF/page/menu/template.jsp</result>
+		</action>
+		<!-- 系统设置与管理 -->
+		<action name="sysManageAction_*" class="com.scada.action.SysManageAction" method="{1}">
+			<result name="show">/WEB-INF/page/system/sysManage.jsp</result>
+			<result name="sessionTime" type="redirectAction">sysManageAction_show.action</result>
+			<result name="dataBackup" type="redirectAction">sysManageAction_show.action</result>
+			<result name="page" type="redirectAction">sysManageAction_show.action</result>
+		</action>
+		<!-- 安全管理 -->
+		<action name="sysSafetyAction_*" class="com.scada.action.SysSafetyAction" method="{1}">
+			<result name="show">/WEB-INF/page/system/safety.jsp</result>
+			<result name="save" type="redirectAction">sysSafetyAction_show.action</result>
+		</action>
+		<!-- 性能管理 -->
+		<action name="sysPerformanceAction_*" class="com.scada.action.SysPerformanceAction" method="{1}">
+			<result name="show">/WEB-INF/page/system/performance.jsp</result>
+		</action>
+		<!-- 配置管理 -->
+		<action name="sysConfigureAction_*" class="com.scada.action.SysConfigureAction" method="{1}">
+			<result name="show">/WEB-INF/page/system/configure.jsp</result>
+			<param name="savePath">/sysConf</param>
+			<result name="save" type="redirectAction">sysConfigureAction_show.action</result>
+		</action>
+		<!-- ************************************** -->
+		
+
+		<!-- ***************统一信息库管理************* -->
+		<!-- 工单管理 -->
+		<action name="workOrderAction_*" class="com.scada.action.WorkOrderAction"
+			method="{1}">
+			<result name="show">WEB-INF/page/uniform/workorder.jsp</result>
+			<result name="add" type="redirectAction">workOrderAction_show.action</result>
+			<result name="update" type="redirectAction">workOrderAction_show.action
+			</result>
+			<result name="delete" type="redirectAction">workOrderAction_show.action
+			</result>
+		</action>
+		<!-- ********************************** -->
+		
+		
+		<!-- ************yuan****************** -->
+		<action name="FileManager" method="FileManager" class="com.scada.action.FileManagerAction">
+			<result name="FileManager">/WEB-INF/page/manager/fileManager.jsp</result>
+			<!--<result name="">/WEB-INF/page/manager/fileManager.jsp</result>-->
+		</action>
+		<action name="Achievement" method="Achievement" class="com.scada.action.AchievementAction">
+			<result name="Achievement">/WEB-INF/page/manager/achievement.jsp</result>
+			<!--  <result name="">/WEB-INF/page/manager/achievement.jsp</result>-->
+			<!--  <result name="addAch">/WEB-INF/page/manager/addAch.jsp</result>-->
+		</action>
+		<action name="Forward" method="Forward" class="com.scada.action.ForwardAction">
+			<result name="forwardMeet">/WEB-INF/page/manager/addMeet.jsp</result>
+		</action>
+		
+		
+		<action name="MeetManager" method="MeetManager" class="com.scada.action.MeetManagerAction">
+			<result name="MeetManager">/WEB-INF/page/manager/meetManager.jsp</result>
+		</action>
+		<!-- ********************************** -->
+	</package>
+
+
+</struts>

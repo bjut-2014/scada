@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.scada.domain.DocumentURL" table="documentURL">
+		
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="doc_name" type="java.lang.String">
+			<column name="doc_name"></column>
+		</property>
+		<property name="doc_author" type="java.lang.String">
+			<column name="doc_author"></column>
+		</property>
+		<property name="doc_type" type="java.lang.String">
+			<column name="doc_type"></column>
+		</property>
+		<property name="doc_subtype" type="java.lang.String">
+			<column name="doc_subtype"></column>
+		</property>
+		<property name="doc_url" type="java.lang.String">
+			<column name="doc_url"></column>
+		</property>
+		<property name="doc_date" type="java.util.Date">
+			<column name="doc_date"></column>
+		</property>
+	</class>
+</hibernate-mapping>
